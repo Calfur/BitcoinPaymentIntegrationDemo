@@ -1,0 +1,16 @@
+﻿@using BitcoinPaymentIntegrationDemo.Controllers;
+@model ProductSelectionModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <main>
+        <h1>Demo shopping cart</h1>
+        <form asp-controller="HomeController.NAME" asp-action="@nameof(HomeController.Index)">
+            @Html.TextBoxFor(m => m.Amount)
+            <button type="submit"></button>
+        </form>
+    </main>
+</div>
