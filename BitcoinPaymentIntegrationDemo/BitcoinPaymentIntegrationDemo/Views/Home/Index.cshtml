@@ -12,12 +12,12 @@
 <section class="text-center">
     <img class="penguin" src="img/ai_penguin.png"/>
 
-    <h3>CHF 15.00 / 🐧</h3>
+    <h3>CHF @HomeController.PRICE.00 / 🐧</h3>
 
-    <form asp-controller="@HomeController.NAME" asp-action="@nameof(HomeController.Index)">
+    <form asp-controller="@HomeController.NAME" asp-action="@nameof(HomeController.Pay)">
         <div class="form-group mb-2">
             <label for="amount-input">Amount:</label>
-            @Html.TextBoxFor(m => m.Amount, new { id = "amount-input", @class="form-control" })
+            @Html.TextBoxFor(m => m.Amount, new { id = "amount-input", @class="form-control", autocomplete="off" })
             <span asp-validation-for="Amount" class="text-danger"></span>
         </div>
 
