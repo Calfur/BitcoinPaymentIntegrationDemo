@@ -14,9 +14,18 @@
 
     <h3>CHF 15.00 / 🐧</h3>
 
-    <form asp-controller="HomeController.NAME" asp-action="@nameof(HomeController.Index)">
-        <label for="amount-input">Amount:</label>
-        @Html.TextBoxFor(m => m.Amount, new { id = "amount-input" })
-        <button type="submit">Submit</button>
+    <form asp-controller="@HomeController.NAME" asp-action="@nameof(HomeController.Index)">
+        <div class="form-group mb-2">
+            <label for="amount-input">Amount:</label>
+            @Html.TextBoxFor(m => m.Amount, new { id = "amount-input", @class="form-control" })
+            <span asp-validation-for="Amount" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </section>
+
+@section scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
+}

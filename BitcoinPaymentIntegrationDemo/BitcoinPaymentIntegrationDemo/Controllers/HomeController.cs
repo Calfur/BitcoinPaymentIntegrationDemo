@@ -6,7 +6,7 @@ namespace BitcoinPaymentIntegrationDemo.Controllers
 {
     public class HomeController : Controller
     {
-        public string NAME = "Home";
+        public const string NAME = "Home";
 
         private readonly ILogger<HomeController> _logger;
 
@@ -29,6 +29,11 @@ namespace BitcoinPaymentIntegrationDemo.Controllers
         [HttpPost]
         public IActionResult Index(ProductSelectionModel model)
         {
+            if (model.Amount == 0)
+            {
+                return View(model);
+            }
+
             return View(model);
         }
 
