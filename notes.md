@@ -14,5 +14,6 @@
         - NEVER TOUCH CRYPTO — Get settled in cash
 - Short overview over the future with smart contracts
     - Faster payments
+    - Near 0 fees
     - 2FA
     - Daily & Monthly Limits

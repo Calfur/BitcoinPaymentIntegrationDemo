@@ -5,12 +5,18 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <main>
-        <h1>Demo shopping cart</h1>
-        <form asp-controller="HomeController.NAME" asp-action="@nameof(HomeController.Index)">
-            @Html.TextBoxFor(m => m.Amount)
-            <button type="submit"></button>
-        </form>
-    </main>
-</div>
+<header class="text-center">
+    <h1>Let's buy some<br /> luminous penguins 🚀</h1>
+</header>
+
+<section class="text-center">
+    <img class="penguin" src="img/ai_penguin.png"/>
+
+    <h3>CHF 15.00 / 🐧</h3>
+
+    <form asp-controller="HomeController.NAME" asp-action="@nameof(HomeController.Index)">
+        <label for="amount-input">Amount:</label>
+        @Html.TextBoxFor(m => m.Amount, new { id = "amount-input" })
+        <button type="submit">Submit</button>
+    </form>
+</section>
