@@ -2,6 +2,6 @@
 {
     public class InvoiceModel
     {
-        public string ResponseContent { get; set; }
+        public string CheckoutLink { get; set; }
     }
 }

@@ -1,4 +1,6 @@
 ﻿@using BitcoinPaymentIntegrationDemo.Controllers;
+@using System.Globalization;
+
 @model ProductSelectionModel
 
 @{
@@ -12,7 +14,7 @@
 <section class="text-center">
     <img class="penguin" src="img/ai_penguin.png"/>
 
-    <h3>CHF @HomeController.PRICE.00 / 🐧</h3>
+    <h3>@HomeController.PRICE.ToString("C", CultureInfo.CreateSpecificCulture("fr-CH")) / 🐧</h3>
 
     <form asp-controller="@HomeController.NAME" asp-action="@nameof(HomeController.Pay)">
         <div class="form-group mb-2">

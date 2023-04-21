@@ -12,7 +12,7 @@ namespace BitcoinPaymentIntegrationDemo.Components
             _configurationComponent = new ConfigurationComponent();
         }
 
-        public async Task<InvoiceModel> GetInvoiceAsync(int price)
+        public async Task<InvoiceModel> GetInvoiceAsync(decimal price)
         {
             var redirectURL = _configurationComponent.GetApplicationUrl();
 
@@ -20,12 +20,16 @@ namespace BitcoinPaymentIntegrationDemo.Components
             var invoice = await client.CreateInvoice("FkRSUeStjPEtNJPWEEvEJPUyVCL3KcG3D1PxbSpuQZpL", new BTCPayServer.Client.Models.CreateInvoiceRequest
             {
                 Amount = price,
-                Currency = "CHF"
+                Currency = "CHF",
+                Checkout = new BTCPayServer.Client.Models.InvoiceDataBase.CheckoutOptions
+                {
+                    RedirectURL = redirectURL
+                }
             });
 
             return new InvoiceModel
             {
-                ResponseContent = invoice.ToString()
+                CheckoutLink = invoice.CheckoutLink
             };
         }
     }

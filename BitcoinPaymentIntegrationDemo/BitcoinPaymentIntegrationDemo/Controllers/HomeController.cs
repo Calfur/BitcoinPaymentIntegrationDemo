@@ -8,7 +8,7 @@ namespace BitcoinPaymentIntegrationDemo.Controllers
     public class HomeController : Controller
     {
         public const string NAME = "Home";
-        public const int PRICE = 15;
+        public const decimal PRICE = (decimal)0.1;
 
         private readonly ILogger<HomeController> _logger;
         private readonly InvoiceComponent _invoiceComponent;
@@ -37,7 +37,7 @@ namespace BitcoinPaymentIntegrationDemo.Controllers
         {
             var invoiceModel = await _invoiceComponent.GetInvoiceAsync(productSelectionModel.Amount * PRICE);
 
-            return View(invoiceModel);
+            return Redirect(invoiceModel.CheckoutLink);
         }
 
         public IActionResult Privacy()
