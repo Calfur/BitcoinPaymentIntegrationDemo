@@ -21,6 +21,11 @@
             return _configuration.GetSection("BTCPayServer").GetValue<string>("APIKey");
         }
 
+        internal string GetStoreId()
+        {
+            return _configuration.GetSection("BTCPayServer").GetValue<string>("StoreId");
+        }
+
         internal string GetApplicationUrl()
         {
             return _configuration.GetValue<string>("ApplicationUrl");
